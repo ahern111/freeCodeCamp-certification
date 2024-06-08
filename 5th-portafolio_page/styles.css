@@ -1,0 +1,78 @@
+*, *::after, *::before{
+    border: 1px solid red;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+  }
+  
+  body {
+    position: relative;
+    margin: 4vh auto;
+    padding: 1vh 1vw;
+    overflow: hidden;
+    height: 90vh;
+    width: 90vw;
+    max-width: 1000px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .info {
+    width: 40%;
+    max-width: 250px;
+    height: 100%;
+  }
+  .navbar {
+    width: 60%;
+    height: 6%;
+    text-align: end;
+  }
+  .navbar ul {
+    display: flex;
+    justify-content: end;
+    gap: max(5%, 10px);
+    height: 100%;  
+    list-style: none;
+  }
+  .navbar a{
+    text-decoration: none;
+  }
+  
+  
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: -82vh;
+    margin-left: min(40%, 250px);
+    height: 82vh;
+    width: max(60%, calc(100% - 250px));
+    overflow-y: auto;
+    padding: 1vw;
+  }
+  /* .welcome {
+    line-height: 3
+  } */
+  
+  @media (max-width: 500px){
+    .info{
+      height: 6%
+    }
+    main::before {
+      content: "My Name & photo";
+      height: 40%;
+      place-content: center;
+      text-align: center;;
+      font-size: 30px;
+    }
+    main {
+      margin: 0;
+      width: 100%;
+      scrollbar-width: none;
+    }
+  }
