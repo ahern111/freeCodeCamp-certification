@@ -1,0 +1,52 @@
+:root {
+    /*  */
+    --headerDiv: min(35%, 250px);
+    --headerMaxWidth: 800px;
+    --headerNav_height: 5%;
+
+    /*  */
+    --content_height: calc(100% - var(--headerNav_height));
+    --contentWidth: calc(100% - var(--headerDiv));
+    --contentMaxWidth: calc(var(--headerMaxWidth) - var(--headerDiv));
+}
+
+*, *::after, *::before {
+    border: 1px solid saddlebrown;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aquamarine;
+    padding: 5vh 5vw;
+    height: 100vh;
+}
+
+header {
+    background-color: aqua;
+    height: 100%;
+    display: flex;
+    max-width: var(--headerMaxWidth);
+    margin: 0 auto;
+}
+header div{
+    background-color: bisque;
+    width: var(--headerDiv);
+}
+header nav{
+    background-color: blueviolet;
+    height: 5%;
+    width: var(--contentWidth)
+}
+
+main {
+    background-color: azure;
+    width: var(--contentWidth);
+    max-width: var(--contentMaxWidth);
+    margin: 0 auto;
+    height: var(--content_height);
+    position: relative;
+    top: calc(-1 * var(--content_height));
+    right: calc(-1 * var(--headerDiv)/2);
+}
