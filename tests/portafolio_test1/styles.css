@@ -7,6 +7,8 @@
     --heroInfo_color: rgb(165, 185, 185);
 
     /* Web Settings */
+    --web_fontSize: 16px;
+    --lineHeight: 1.2;
     --headerDiv_width: min(35%, 250px);
     --headerMaxWidth: 1000px;
     --headerNav_height: 5%;
@@ -14,6 +16,7 @@
     --heroInfo_borderRadius: 20px 20px 0;
 
     /* Mobile Settings */
+    --mobile_fontSize: 14px;
     --mobile_width: 100vw;
     --mobile_headerDiv_height: 90vh;
     --mobile_headerNav_height: 5%;
@@ -32,9 +35,12 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    text-decoration: none;
 }
 
 body {
+    font-size: var(--web_fontSize);
+    line-height: var(--lineHeight);
     background-color: var(--background_color);
     padding: var(--body_padding);
     height: 100vh;
@@ -42,12 +48,10 @@ body {
 }
 
 header {
-    /* background-color: aqua; */
     height: 100%;
     display: flex;
     max-width: var(--headerMaxWidth);
     margin: 0 auto;
-    /* border-radius: 5%; */
 }
 /* Info panel */
 header .heroInfo{
@@ -61,6 +65,12 @@ header .heroInfo{
     height: 40%;
     border-radius: 30%;
     margin: 40px 10px;
+    overflow: hidden;
+}
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .heroInfo ul {
     height: 30%;
@@ -73,12 +83,19 @@ header .heroInfo{
 }
 .heroInfo li{
     width: 60%;
-    padding: 5px;
+    /* margin: 5px; */
     text-align: center;
     border-radius: 40px;
     background-color: var(--mainBody_color);
 }.heroInfo li:hover{
     background-color: var(--mainHover_color);
+}
+.heroInfo a{
+    color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
 }
 
 /* Nav UI */
@@ -91,16 +108,14 @@ header nav{
 }
 nav ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
 
     list-style: none;
-    /* column-gap: min(10%, 25px); */
+    column-gap: min(4%, 25px);
     height: 100%;
-    margin-left: 30%;
 }
 nav a{
-    text-decoration: none;
     color: black;
 }
 
@@ -118,55 +133,90 @@ main {
     border-radius: 0 20px 20px 0;
 }
 main h2 {
+    font-size: 1.3rem;
     margin-bottom: 15px;
+    border-bottom: 0.5vh solid var(--heroInfo_color);
 }
 section {
     padding: 10px;
 }
+section p{
+    font-size: 1.1rem;
+}
+
+/* welcome Section */
+#welcome-section{
+    height: 40vh;
+}
+h1 {
+    font-size: 3rem;
+    height: 60%;
+    align-content: end;
+}
+#welcome-section p {
+    font-size: 1.3rem;
+}
+
+/* Experience */
+.experience{
+    margin-bottom: 15px;
+}
+.experience>ul{
+    list-style: inside ;
+}
+
+.title{
+    margin-bottom: 8px;
+}
+.title>h3{
+    font-size: 1rem;
+}
+.title>h3>span {
+    font-style: italic;
+    font-weight: normal;
+}
+.title>p{
+    font-size: .8rem;
+    font-style: oblique;
+}
 
 /* projects section */
 .project_gallery{
-    border: 1px dashed red;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 20px 10px;
-    width: 100%;
 }
-/* .project_gallery::after{
-    content: "";
-    width: max(200px, 30%);
-} */
 .project {
     width: max(200px, 30%);
-    height: 160px;
-    border: 4px solid var(--heroInfo_color);
+    height: auto;
+    min-height: 225px;
+    border: 3px solid var(--heroInfo_color);
     border-radius: 10px;
+    color: black;
+    background-color: var(--heroInfo_color);
+    overflow: hidden;
 }
 .project img {
     min-width: 100%;
-    min-height: 75%;
+    min-height: 180px;
+    background-color: aqua;
     text-align: center;
+    object-fit: cover;
 }
 .project h4{
-    font-size: 14px;
-    min-height: 25%;
+    font-size: 1rem;
     text-align: center;
-    padding: 8px 2px;
     background-color: var(--heroInfo_color);
 }
-/* #projects .project {
-    width: 30%;
-    height: 2000px;
-    border: 2px dashed rebeccapurple;
-} */
 
-@media (max-width: 400px) {
+@media (max-width: 470px) {
     body {
         padding: 0;
         overflow-y: scroll;
+        font-size: var(--mobile_fontSize);
     }
 
     /* heroInfo panel */
@@ -178,6 +228,11 @@ section {
         height: var(--mobile_heroInfo_height);
         width: var(--mobile_width);
         border-radius: 0;
+    }
+    .heroInfo .image img{
+        position: unset;
+        width: 100%;
+        height: fit-content;
     }
     /* .heroInfo ul {
         flex-direction: row;
@@ -191,9 +246,9 @@ section {
     /* Nav UI */
     header nav {
         width: var(--mobile_width);
-        background-color: blueviolet;
+        background-color: var(--heroInfo_color);
         position: fixed;
-        top: 0;
+        top: 0%;
         height: var(--mobile_headerNav_height);
     }
     nav ul {
@@ -206,7 +261,7 @@ section {
         height: max-content;
         border-radius: 0;
     }
-    #main {        
+    section {        
         padding-top: calc(30px + var(--headerNav_height));
     }
 }
