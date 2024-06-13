@@ -189,7 +189,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-.project {
+.project-tile {
     width: max(200px, 30%);
     height: auto;
     min-height: 225px;
@@ -199,14 +199,14 @@ h1 {
     background-color: var(--heroInfo_color);
     overflow: hidden;
 }
-.project img {
+.project-tile img {
     min-width: 100%;
     min-height: 180px;
     background-color: aqua;
     text-align: center;
     object-fit: cover;
 }
-.project h4{
+.project-title{
     font-size: 1rem;
     text-align: center;
     background-color: var(--heroInfo_color);
