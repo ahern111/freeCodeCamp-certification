@@ -1,26 +1,32 @@
 :root {
-    /*  */
+    /* Web Settings */
     --headerDiv: min(35%, 250px);
-    --headerMaxWidth: 800px;
+    --headerMaxWidth: 1000px;
     --headerNav_height: 5%;
 
-    /*  */
+    /* Mobile Settings */
+    --mobile_width: 100%;
+
+    /* Responsive to Settings */
     --content_height: calc(100% - var(--headerNav_height));
     --contentWidth: calc(100% - var(--headerDiv));
     --contentMaxWidth: calc(var(--headerMaxWidth) - var(--headerDiv));
 }
 
 *, *::after, *::before {
-    border: 1px solid saddlebrown;
+    /* border: 1px solid saddlebrown; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 body {
     background-color: aquamarine;
-    padding: 5vh 5vw;
+    padding: 5vh;
     height: 100vh;
+    overflow: hidden;
 }
 
 header {
@@ -32,12 +38,26 @@ header {
 }
 header div{
     background-color: bisque;
+    height: 100%;
     width: var(--headerDiv);
 }
 header nav{
     background-color: blueviolet;
-    height: 5%;
-    width: var(--contentWidth)
+    height: var(--headerNav_height);
+    width: var(--contentWidth);
+    padding: 0 10px;
+}
+nav ul{
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    column-gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+nav a{
+    text-decoration: none;
+    color: black;
 }
 
 main {
@@ -49,4 +69,45 @@ main {
     position: relative;
     top: calc(-1 * var(--content_height));
     right: calc(-1 * var(--headerDiv)/2);
+    overflow-y: auto;
+}
+section {
+    padding: 10px;
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 0vh;
+        overflow-y: scroll;
+    }
+    header {
+        flex-direction: column-reverse;
+        height: 50vh;
+    }
+    header div {
+        height: 90%;
+        width: var(--mobile_width);
+    }
+    header nav {
+        width: var(--mobile_width);
+        background-color: blueviolet;
+        position: fixed;
+        top: 0;
+    }
+    nav ul {
+        justify-content: center;
+    }
+    main {
+        position: unset;
+        width: var(--mobile_width);
+        height: max-content;
+    }
+    #main {
+        padding-top: calc(30px + var(--headerNav_height));
+    }
+}
+
+/* for scroll test purposes */
+section {
+    height: 500px;
 }
