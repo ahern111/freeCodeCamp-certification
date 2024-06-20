@@ -16,10 +16,10 @@
     --heroInfo_borderRadius: 20px 20px 0;
 
     /* Mobile Settings */
-    --mobile_fontSize: 14px;
+    --mobile_fontSize: var(--web_fontSize);
     --mobile_width: 100vw;
-    --mobile_headerDiv_height: 90vh;
-    --mobile_headerNav_height: 5%;
+    --mobile_headerDiv_height: 100vh;
+    --mobile_headerNav_height: 8%;
     --mobile_heroInfo_height: calc(100% - var(--mobile_headerNav_height));
 
     /* Responsive to Settings */
@@ -61,29 +61,38 @@ header .heroInfo{
     border-radius: var(--heroInfo_borderRadius);
 }
 .heroInfo .image {
-    background-color: lightcoral;
-    height: 40%;
-    border-radius: 30%;
+    height: fit-content;
+    border-radius: 15%;
     margin: 40px 10px;
     overflow: hidden;
 }
 .image img {
-    height: 100%;
-    width: 100%;
     object-fit: cover;
 }
+.heroInfo h1 {
+    text-align: center;
+    font-size: 3rem;
+    height:fit-content;
+}
+.heroInfo h1 span{
+    display: block;
+    color: brown;
+}
 .heroInfo ul {
-    height: 30%;
     list-style: none;
     align-items: center;
+    padding: 25px 0;
+
+    font-size: 1.2rem;
+
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 15px;
 }
 .heroInfo li{
     width: 60%;
-    /* margin: 5px; */
     text-align: center;
     border-radius: 40px;
     background-color: var(--mainBody_color);
@@ -111,6 +120,8 @@ nav ul{
     justify-content: end;
     align-items: center;
 
+    font-size: 1.2rem;
+
     list-style: none;
     column-gap: min(4%, 25px);
     height: 100%;
@@ -131,35 +142,50 @@ main {
     right: calc(-1 * var(--headerDiv_width)/2);
     overflow-y: auto;
     border-radius: 0 20px 20px 0;
+    padding: 0 4vw;
 }
 main h2 {
     font-size: 1.3rem;
-    margin-bottom: 15px;
+    margin-bottom: 3vh;
     border-bottom: 0.5vh solid var(--heroInfo_color);
-}
-section {
-    padding: 10px;
 }
 section p{
     font-size: 1.1rem;
 }
+.card {
+    box-shadow: -1vh 1vh 20px 5px var(--heroInfo_color);
+    border-radius: 5px;
+    padding: 1.5vh;
+}
+.spacer {
+    /* border: 1px solid red; */
+    margin-bottom: var(--headerNav_height);
+}
 
 /* welcome Section */
-#welcome-section{
+.welcome{
     height: 40vh;
 }
-h1 {
+.welcome h2 {
     font-size: 3rem;
     height: 60%;
     align-content: end;
+    border: none;
+    text-decoration:underline brown;
 }
-#welcome-section p {
+.welcome p {
     font-size: 1.3rem;
+}
+/* About */
+.aboutMe {
+    /* border: 1px solid red; */
 }
 
 /* Experience */
-.experience{
-    margin-bottom: 15px;
+.experiences .gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
 }
 .experience>ul{
     list-style: inside ;
@@ -191,7 +217,7 @@ h1 {
 }
 .project-tile {
     width: max(200px, 30%);
-    height: auto;
+    /* height: auto; */
     min-height: 225px;
     border: 3px solid var(--heroInfo_color);
     border-radius: 10px;
@@ -218,6 +244,9 @@ h1 {
         overflow-y: scroll;
         font-size: var(--mobile_fontSize);
     }
+    .spacer {
+        margin-bottom: var(--mobile_headerNav_height);
+    }
 
     /* heroInfo panel */
     header {
@@ -229,15 +258,23 @@ h1 {
         width: var(--mobile_width);
         border-radius: 0;
     }
-    .heroInfo .image img{
+    /* use this set up for the web too */
+    .heroInfo .image{
         position: unset;
-        width: 100%;
-        height: fit-content;
+        width: max-content;
+        margin: 0 auto 2vh;
     }
-    /* .heroInfo ul {
+    .heroInfo .image img {
+        object-fit:contain ;
+    }
+    .heroInfo>div {
+        padding: 6vh 0;
+        margin-bottom: 5vh;
+    }
+    .heroInfo ul {
         flex-direction: row;
         flex-wrap: wrap;
-    } */
+    }
     .heroInfo li {
         max-width: 150px;
         min-width: 100px;
@@ -263,6 +300,11 @@ h1 {
     }
     section {        
         padding-top: calc(30px + var(--headerNav_height));
+    }
+
+    /* projects */
+    .project-tile {
+        width: 80%;
     }
 }
 

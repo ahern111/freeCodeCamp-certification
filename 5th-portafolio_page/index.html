@@ -11,9 +11,12 @@
     <body>
         <header>
             <div class="heroInfo">
-                <div class="image">
+                <div>
+                    <div class="image">
                     <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
                     alt="profile photo"/>
+                    </div>
+                    <h1>I'm <span>Angel Hernandez</span></h1>
                 </div>
                 <ul>
                     <li><a>LinkedIn</a></li>
@@ -25,20 +28,22 @@
                 <ul>
                     <li><a href="#welcome-section">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#experiences">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section id="welcome-section">
-                <h1>Computer Science Student</h1>
+            <div class="spacer" id="welcome-section"></div>
+            <section class="welcome">
+                <h2>Computer Science Student</h2>
                 <p>
                     Bachelor of Science at Kennesaw State University.
                     High level experience in ML, Big Data, UI/UX Design, SQL, and more. 
                 </p>
             </section>
-            <section id="about">
+            <div class="spacer" id="about"></div>
+            <section class="aboutMe">
                 <h2>About Me</h2>
                 <p>
                     As a college student majoring in Computer Science, with a Software Engineering minor and 5+ years of customer service experience,
@@ -46,33 +51,37 @@
                     my abilities to the test, allowing me to learn an advance further.
                 </p>
             </section>
-            <section id="experience">
+            <div class="spacer" id="experiences"></div>
+            <section class="experiences">
                 <h2>Work Experience</h2>
-                <div class="experience">
-                    <div class="title">
-                        <h3>Sales Associate – DJF’s Tech Appliance <span>| Canton, GA</span></h3>
-                        <p>August 2021 – Present</p>
+                <div class="gallery">
+                    <div class="experience card">
+                        <div class="title">
+                            <h3>Sales Associate – DJF’s Tech Appliance <span>| Canton, GA</span></h3>
+                            <p>August 2021 – Present</p>
+                        </div>
+                        <ul>
+                            <li>Creating a welcoming environment for customers</li>
+                            <li>Managing customer inputs and concerns</li>
+                            <li>Providing clientele with available options depending on their needs</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>Creating a welcoming environment for customers</li>
-                        <li>Managing customer inputs and concerns</li>
-                        <li>Providing clientele with available options depending on their needs</li>
-                    </ul>
-                </div>
-                <div class="experience">
-                    <div class="title">
-                        <h3>Customer Service Representative – Cristo LLC <span>| Kennesaw, GA</span></h3>
-                        <p>July 2019 – February 2021</p>
+                    <div class="experience card">
+                        <div class="title">
+                            <h3>Customer Service Representative – Cristo LLC <span>| Kennesaw, GA</span></h3>
+                            <p>July 2019 – February 2021</p>
+                        </div>
+                        <ul>
+                            <li>Helped customers by fulfilling their needs</li>
+                            <li>Provided quality Service to different markets</li>
+                            <li>Developed teamwork on a fast-paced environment</li>
+                            <li>Operated POS terminals to input customers’ orders</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>Helped customers by fulfilling their needs</li>
-                        <li>Provided quality Service to different markets</li>
-                        <li>Developed teamwork on a fast-paced environment</li>
-                        <li>Operated POS terminals to input customers’ orders</li>
-                    </ul>
                 </div>
             </section>
-            <section id="projects">
+            <div class="spacer" id="projects"></div>
+            <section >
                 <h2>Projects I've Done</h2>
                 <div class="project_gallery">
                     <a class="project-tile" target="_blank" href="https://github.com/ahern111/freeCodeCamp-certification/tree/main/4th-product_landing">
@@ -90,5 +99,6 @@
                 </div>
             </section>
         </main>
+        <footer></footer>
     </body>
 </html>
