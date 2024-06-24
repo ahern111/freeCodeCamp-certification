@@ -1,0 +1,78 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    padding: 5vh 2vw;
+    max-width: 1000px;
+    margin: 0 auto;    
+
+    display: grid;
+    grid-template: 
+    "profile navbar" 10%
+    "profile cont" 90%
+    / min(30%, 200px) max(70%, calc(100% - 200px))
+    ;
+    
+}
+
+.profile {
+    grid-area: profile;
+}
+.navbar {
+    grid-area: navbar;
+}
+.content {
+    grid-area: cont;
+}
+
+.navbar{
+    display: flex;
+    background-color: antiquewhite;
+}
+.navI {
+    min-height: 100%;
+    min-width: 100px;
+
+}
+
+.content {
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#i1, #i2, #i3{
+    min-height: 500px;
+    background-color: aqua;
+}
+
+@media (max-width: 470px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 15vh;
+        width: 100%;
+    }
+    body {
+        overflow-y: scroll;
+        scrollbar-width: none;
+        grid-template:
+        "navbar" 10vh
+        "profile" 90vh
+        "cont" 100vh
+        / 100%;
+    }
+    .content {
+        overflow: unset;
+        scrollbar-width: none;
+    }
+}
